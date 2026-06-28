@@ -1,26 +1,204 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Theme tokens map to runtime variables that swap per color scheme below.
+   Color encodes system state: blue = healthy, amber = failover. */
+@theme {
+  --color-void: var(--c-void);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-signal: var(--c-signal);
+  --color-signal-dim: var(--c-signal-dim);
+  --color-warn: var(--c-warn);
+  --color-mint: var(--c-mint);
+  --color-ink: var(--c-ink);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+
+  --font-display: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-mono), ui-monospace, monospace;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Dark theme (default) */
+:root,
+.dark {
+  color-scheme: dark;
+  --c-void: #0a0e14;
+  --c-surface: #121823;
+  --c-surface-2: #1a2230;
+  --c-signal: #4f8fff;
+  --c-signal-dim: #2b568f;
+  --c-warn: #ff7a45;
+  --c-mint: #5eead4;
+  --c-ink: #e6edf5;
+  --c-muted: #7d8794;
+  --c-line: #222c3a;
+
+  /* ambient tuning */
+  --grid-rgb: 79, 143, 255;
+  --grid-alpha: 0.04;
+  --glow-signal: rgba(79, 143, 255, 0.1);
+  --atmo-1: rgba(79, 143, 255, 0.22);
+  --atmo-2: rgba(94, 234, 212, 0.12);
+  --atmo-3: rgba(79, 143, 255, 0.14);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* Light theme — designed, not inverted: soft off-white, white cards,
+   deeper accent blue for contrast. */
+.light {
+  color-scheme: light;
+  --c-void: #f6f8fb;
+  --c-surface: #ffffff;
+  --c-surface-2: #eef1f6;
+  --c-signal: #2f6fe0;
+  --c-signal-dim: #7aa6f0;
+  --c-warn: #e0612d;
+  --c-mint: #0fae93;
+  --c-ink: #0a121e;
+  --c-muted: #44505f;
+  --c-line: #e2e7ee;
+
+  --grid-rgb: 47, 111, 224;
+  --grid-alpha: 0.05;
+  --glow-signal: rgba(47, 111, 224, 0.08);
+  --atmo-1: rgba(47, 111, 224, 0.1);
+  --atmo-2: rgba(15, 174, 147, 0.07);
+  --atmo-3: rgba(47, 111, 224, 0.07);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  /* Decorative blur glows can extend past the viewport — never let them
+     create a horizontal scrollbar on small screens. */
+  overflow-x: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-void);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* Ambient drifting gradient mesh */
+.atmo {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(110px);
+  opacity: 0.5;
+  will-change: transform;
+}
+.atmo-1 {
+  top: -10%;
+  left: -5%;
+  width: 45vw;
+  height: 45vw;
+  background: radial-gradient(circle, var(--atmo-1), transparent 70%);
+  animation: drift-1 26s ease-in-out infinite;
+}
+.atmo-2 {
+  top: 30%;
+  right: -10%;
+  width: 40vw;
+  height: 40vw;
+  background: radial-gradient(circle, var(--atmo-2), transparent 70%);
+  animation: drift-2 32s ease-in-out infinite;
+}
+.atmo-3 {
+  bottom: -15%;
+  left: 25%;
+  width: 38vw;
+  height: 38vw;
+  background: radial-gradient(circle, var(--atmo-3), transparent 70%);
+  animation: drift-3 28s ease-in-out infinite;
+}
+@keyframes drift-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(8vw, 6vh) scale(1.12); }
+}
+@keyframes drift-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-6vw, 8vh) scale(0.9); }
+}
+@keyframes drift-3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5vw, -7vh) scale(1.1); }
+}
+
+/* Subtle ambient grid backdrop */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgba(var(--grid-rgb), var(--grid-alpha)) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(var(--grid-rgb), var(--grid-alpha)) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Mono status eyebrow */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-signal);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+
+.hairline {
+  border-color: var(--color-line);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-signal);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.text-gradient {
+  background: linear-gradient(120deg, var(--color-ink) 30%, var(--color-signal) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+::selection {
+  background: var(--color-signal);
+  color: var(--color-void);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-void);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-line);
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-signal-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
 }
