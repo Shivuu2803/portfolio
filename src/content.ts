@@ -5,8 +5,8 @@
 // This file describes Shivansh's role and skills only — no internal specifics.
 
 // Canonical site URL — used for SEO metadata, sitemap, robots, and OG tags.
-// Update this to your real domain once deployed (e.g. Vercel gives you one).
-export const siteUrl = "https://shivanshmishra.vercel.app";
+// Update this if you later attach a custom domain.
+export const siteUrl = "https://portfolio-five-zeta-rp9zc26u9y.vercel.app";
 
 export const profile = {
   name: "Shivansh Mishra",
