@@ -164,6 +164,13 @@ body {
   border-radius: 2px;
 }
 
+/* Text fields already show focus via their own border color (see
+   ContactForm) — the offset ring on top of that reads as a double outline. */
+input:focus-visible,
+textarea:focus-visible {
+  outline: none;
+}
+
 .text-gradient {
   background: linear-gradient(120deg, var(--color-ink) 30%, var(--color-signal) 100%);
   -webkit-background-clip: text;

@@ -12,9 +12,6 @@ export const profile = {
   name: "Shivansh Mishra",
   role: "Software Development Engineer",
   location: "Lucknow, India",
-  // To use your real photo: drop it in /public and set this to e.g. "/me.jpg".
-  // Leave empty ("") to show the styled placeholder frame.
-  photo: "",
   tagline: "I'm a full-stack engineer who cares about systems that stay reliable under pressure.",
   intro:
     "Software Development Engineer at Lendix.ai, working on production systems in the fintech and lending space — backend services, API integrations, and internal tooling across the full stack.",
@@ -24,15 +21,16 @@ export const profile = {
     linkedin: "https://www.linkedin.com/in/shivanshmishra02/",
     email:
       "mailto:shivanshmishra2606@gmail.com?subject=Let%27s%20connect&body=Hi%20Shivansh%2C",
-    cv: "/Shivansh_Mishra_CV.pdf",
+    // Hosted on Vercel Blob (public), not in the repo — see .gitignore.
+    cv: "https://hs0vxdmdpdrp9dnl.public.blob.vercel-storage.com/Shivansh_Mishra_CV.pdf",
   },
 };
 
+// Inline **bold** marks the key phrase in each line — About.tsx renders these as <strong>.
 export const about = {
   paragraphs: [
-    "I'm a full-stack engineer who likes the unglamorous parts of software — the integrations, the fallbacks, the retries that keep a product alive when a third-party service quietly goes down at 2am.",
-    "My path was direct: I trained intensively at MountBlue, then got deployed to Lendix.ai, where I've spent the last year building production systems in the fintech space. The work spans backend services, third-party API integrations, and the internal tools the team relies on day to day.",
-    "I work across the stack — React and Next.js on the front, Node and Express on the back, DynamoDB and MySQL underneath — but I care most about the architecture: resilient integrations, clean APIs, and systems that are easy to reason about.",
+    "I'm a full-stack engineer drawn to the unglamorous but critical parts of software — the integrations, fallbacks, and retry logic that keep systems **resilient** when a third-party dependency fails in production.",
+    "My path was direct: I trained intensively at **MountBlue**, then got deployed to **Lendix.ai**, where I've spent the last year building production systems in the fintech space — backend services, third-party integrations, and the internal tools the team relies on day to day.",
   ],
 };
 
@@ -57,7 +55,7 @@ export const skills: SkillGroup[] = [
   },
   {
     label: "Tools",
-    items: ["Git", "GitHub", "GitHub Actions", "Figma", "Linux", "Claude"],
+    items: ["Git", "GitHub", "GitHub Actions", "Figma", "Linux"],
   },
 ];
 
@@ -93,12 +91,10 @@ export const experience: Experience[] = [
     summary:
       "Building production systems in the fintech and lending space as part of the core engineering team.",
     highlights: [
-      "Built automatic fallback for critical third-party integrations — kept client workflows running through vendor outages, lifting client throughput by ~60%.",
-      "Developed and maintained API gateway services on AWS — unified, resilient endpoints over many downstream integrations.",
-      "Built and managed multiple internal dashboards used day to day for operations and system visibility.",
-      "Owned deployments end to end — CI/CD pipelines and releases across services on AWS.",
-      "Cut AWS CloudWatch costs by ~55% through optimized log/metric queries and tighter ingestion and retention.",
-      "Implemented secure auth with AWS Cognito — user pools, token sessions, and MFA.",
+      "Built **automatic fallback** for critical third-party integrations — kept client workflows running through vendor outages, lifting client throughput by **~60%**.",
+      "Developed and maintained **API gateway** services on AWS — unified, resilient endpoints over many downstream integrations.",
+      "Owned deployments end to end — **CI/CD** pipelines and releases across services on AWS.",
+      "Cut **AWS CloudWatch** costs by **~55%** through optimized log/metric queries and tighter ingestion and retention.",
     ],
   },
   {
@@ -109,9 +105,9 @@ export const experience: Experience[] = [
     summary:
       "Intensive full-stack engineering bootcamp — building real projects on the MERN stack with constant code reviews and assessments.",
     highlights: [
-      "Built multiple full-stack projects across the MERN stack under real-world engineering standards.",
-      "Sharpened through constant code reviews and regular tests that enforced clean, production-grade code.",
-      "Selected and deployed to Lendix.ai on completion of the program.",
+      "Built multiple full-stack projects across the **MERN stack** under real-world engineering standards.",
+      "Sharpened through constant **code reviews** and regular tests that enforced clean, production-grade code.",
+      "Selected and deployed to **Lendix.ai** on completion of the program.",
     ],
   },
 ];

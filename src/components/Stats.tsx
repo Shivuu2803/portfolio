@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { animate, useInView } from "framer-motion";
+import { TiltCard } from "./TiltCard";
 import { stats } from "@/content";
 
 /** Parses "99.9%" / "50+" / "<500ms" into a numeric target + prefix/suffix. */
@@ -50,18 +51,22 @@ function Counter({ value }: { value: string }) {
 export default function Stats({ tinted }: { tinted?: boolean }) {
   return (
     <section className={tinted ? "bg-surface/60" : ""}>
-      <div className="mx-auto max-w-6xl px-6 py-24">
+      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:py-24">
         <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl border border-line bg-line lg:grid-cols-4">
         {stats.map((s) => (
-          <div key={s.label} className="bg-void p-8 text-center lg:text-left">
-            <div className="font-display text-4xl font-bold text-gradient sm:text-5xl">
-              <Counter value={s.value} />
+          // max={0}: spotlight-only, no rotation — keeps the hairline grid seams flush
+          <TiltCard key={s.label} max={0} className="group h-full">
+            <div className="relative h-full overflow-hidden bg-void p-5 text-center transition-colors duration-300 group-hover:bg-surface/60 sm:p-8 lg:text-left">
+              <span className="absolute left-0 top-0 h-[2px] w-0 bg-signal transition-all duration-300 group-hover:w-full" />
+              <div className="font-display text-3xl font-bold text-gradient transition-transform duration-300 group-hover:-translate-y-0.5 sm:text-4xl lg:text-5xl">
+                <Counter value={s.value} />
+              </div>
+              <p className="mt-3 font-mono text-[11px] uppercase tracking-widest text-ink sm:text-xs">
+                {s.label}
+              </p>
+              <p className="mt-1 text-sm text-muted">{s.context}</p>
             </div>
-            <p className="mt-3 font-mono text-xs uppercase tracking-widest text-ink">
-              {s.label}
-            </p>
-            <p className="mt-1 text-sm text-muted">{s.context}</p>
-          </div>
+          </TiltCard>
         ))}
         </div>
       </div>

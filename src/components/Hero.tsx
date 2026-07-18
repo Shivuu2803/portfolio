@@ -4,7 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { profile } from "@/content";
 import { MagneticButton } from "./MagneticButton";
-import Portrait from "./Portrait";
+import ParticleField from "./ParticleField";
 
 const fade = {
   hidden: { opacity: 0, y: 20 },
@@ -42,7 +42,7 @@ export default function Hero() {
     <section
       ref={ref}
       id="top"
-      className="relative min-h-screen overflow-hidden bg-grid pt-28"
+      className="relative min-h-svh overflow-hidden bg-grid pt-28"
     >
       {/* ambient radial glow (parallax) */}
       <motion.div
@@ -56,17 +56,6 @@ export default function Hero() {
       >
         {/* Left: copy */}
         <div className="order-2 text-center lg:order-1 lg:text-left">
-          <motion.p
-            custom={0}
-            variants={fade}
-            initial="hidden"
-            animate="show"
-            className="eyebrow mb-6 flex items-center justify-center gap-2 lg:justify-start"
-          >
-            <span className="inline-block h-2 w-2 animate-pulse rounded-full bg-mint" />
-            STATUS: OPERATIONAL · {profile.location}
-          </motion.p>
-
           {/* Name — word-by-word reveal */}
           <motion.h1
             initial="hidden"
@@ -131,6 +120,8 @@ export default function Hero() {
             <MagneticButton
               href={profile.links.cv}
               download
+              target="_blank"
+              rel="noreferrer"
               strength={0.25}
               className="inline-flex items-center gap-2 rounded-full border border-line px-6 py-3 font-mono text-xs uppercase tracking-widest text-ink transition-colors hover:border-signal hover:text-signal"
             >
@@ -140,12 +131,12 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: portrait (parallax) */}
+        {/* Right: ambient particle field — desktop only, keeps mobile focused on copy */}
         <motion.div
           style={{ y: graphY }}
-          className="order-1 w-full justify-self-center lg:order-2"
+          className="hidden lg:order-2 lg:mx-auto lg:block lg:aspect-4/5 lg:w-full lg:max-w-105"
         >
-          <Portrait />
+          <ParticleField />
         </motion.div>
       </motion.div>
 

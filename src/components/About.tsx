@@ -1,7 +1,15 @@
 import { Section } from "./Section";
-import { Reveal } from "./Reveal";
+import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import OrchestrationGraph from "./OrchestrationGraph";
+import { renderEmphasis } from "@/lib/emphasis";
 import { about } from "@/content";
+
+const focusItems = [
+  "Backend services & APIs",
+  "Resilient third-party integrations",
+  "Internal tooling & dashboards",
+  "Full-stack product work",
+];
 
 export default function About() {
   return (
@@ -12,8 +20,8 @@ export default function About() {
           <div className="space-y-6">
             {about.paragraphs.map((p, i) => (
               <Reveal key={i} delay={i * 0.08}>
-                <p className="text-center text-lg leading-relaxed text-muted lg:text-left [&_strong]:text-ink">
-                  {p}
+                <p className="text-center text-lg leading-relaxed text-muted lg:text-left">
+                  {renderEmphasis(p)}
                 </p>
               </Reveal>
             ))}
@@ -24,20 +32,19 @@ export default function About() {
               <p className="mb-4 text-xs uppercase tracking-widest text-signal">
                 // current focus
               </p>
-              <ul className="grid gap-3 text-muted sm:grid-cols-2">
-                <li className="flex justify-center gap-3 lg:justify-start">
-                  <span className="text-signal">→</span> Backend services &amp; APIs
-                </li>
-                <li className="flex justify-center gap-3 lg:justify-start">
-                  <span className="text-signal">→</span> Resilient third-party integrations
-                </li>
-                <li className="flex justify-center gap-3 lg:justify-start">
-                  <span className="text-signal">→</span> Internal tooling &amp; dashboards
-                </li>
-                <li className="flex justify-center gap-3 lg:justify-start">
-                  <span className="text-signal">→</span> Full-stack product work
-                </li>
-              </ul>
+              <RevealGroup className="grid gap-3 text-muted sm:grid-cols-2" stagger={0.08}>
+                {focusItems.map((item) => (
+                  <RevealItem
+                    key={item}
+                    className="group flex justify-center gap-3 transition-colors lg:justify-start"
+                  >
+                    <span className="text-signal transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                    <span className="transition-colors group-hover:text-ink">{item}</span>
+                  </RevealItem>
+                ))}
+              </RevealGroup>
             </div>
           </Reveal>
         </div>

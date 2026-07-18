@@ -40,5 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# files
-Shivansh_mishra_cv.pdf
+# files — hosted on Vercel Blob instead, see content.ts profile.links.cv
+public/Shivansh_mishra_cv.pdf

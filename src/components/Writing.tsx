@@ -14,7 +14,7 @@ export default function Writing({ tinted }: { tinted?: boolean }) {
                 href={a.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group/link flex h-full flex-col rounded-xl border border-line bg-surface/40 p-7 text-center transition-colors hover:border-signal/50 lg:text-left"
+                className="group/link flex h-full flex-col rounded-xl border border-line bg-surface/40 p-6 text-center transition-colors hover:border-signal/50 sm:p-7 lg:text-left"
               >
                 <div className="mb-4 flex items-center justify-between font-mono text-[11px] uppercase tracking-widest text-muted">
                   <span className="text-signal">{a.platform}</span>

@@ -42,11 +42,12 @@ export default function Projects() {
         })}
       </div>
 
-      {/* scrollable grid — capped height so it doesn't dominate the page */}
+      {/* scrollable grid on desktop only — on mobile it just flows with the page,
+          avoiding a scroll-within-a-scroll that's awkward on touch */}
       <div className="relative">
         <motion.div
           layout
-          className="grid max-h-[70vh] gap-6 overflow-y-auto pr-2 sm:grid-cols-2 lg:grid-cols-3 [scrollbar-gutter:stable]"
+          className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:max-h-[70vh] lg:overflow-y-auto lg:pr-2 lg:scrollbar-gutter-stable"
         >
           <AnimatePresence mode="popLayout">
             {filtered.map((p, i) => (
@@ -114,8 +115,8 @@ export default function Projects() {
           </AnimatePresence>
         </motion.div>
 
-        {/* fade hint that there's more to scroll */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-12 bg-gradient-to-t from-void to-transparent" />
+        {/* fade hint that there's more to scroll — only meaningful where the grid is scroll-capped */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-12 bg-gradient-to-t from-void to-transparent lg:block" />
       </div>
     </Section>
   );

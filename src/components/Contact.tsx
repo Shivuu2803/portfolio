@@ -6,10 +6,10 @@ export default function Contact() {
   return (
     <section id="contact" className="relative scroll-mt-24 overflow-hidden">
       <div className="pointer-events-none absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 rounded-full bg-signal/10 blur-[120px]" />
-      <div className="relative mx-auto max-w-6xl px-6 py-24 text-center">
+      <div className="relative mx-auto max-w-6xl px-6 py-16 text-center sm:py-20 lg:py-24">
         <Reveal>
           <p className="eyebrow mb-6">Contact</p>
-          <h2 className="mx-auto max-w-3xl text-balance font-display text-4xl font-semibold leading-tight sm:text-5xl">
+          <h2 className="mx-auto max-w-3xl text-balance font-display text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl">
             Let&apos;s build something that <span className="text-gradient">stays up</span>.
           </h2>
           <p className="mx-auto mt-6 max-w-xl leading-relaxed text-muted">

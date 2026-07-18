@@ -21,13 +21,13 @@ export function Section({
       id={id}
       className={`scroll-mt-24 ${tinted ? "bg-surface/60" : ""}`}
     >
-      <div className={`mx-auto max-w-6xl px-6 py-24 ${className}`}>
+      <div className={`mx-auto max-w-6xl px-6 py-16 sm:py-20 lg:py-24 ${className}`}>
         {(eyebrow || title) && (
           <Reveal>
-            <div className="mb-12 text-center">
+            <div className="mb-8 text-center sm:mb-12">
               {eyebrow && <p className="eyebrow mb-3">{eyebrow}</p>}
               {title && (
-                <h2 className="font-display text-3xl font-semibold sm:text-4xl">{title}</h2>
+                <h2 className="font-display text-2xl font-semibold sm:text-3xl lg:text-4xl">{title}</h2>
               )}
             </div>
           </Reveal>

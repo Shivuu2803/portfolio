@@ -13,12 +13,16 @@ export function MagneticButton({
   className = "",
   strength = 0.35,
   download = false,
+  target,
+  rel,
 }: {
   children: ReactNode;
   href: string;
   className?: string;
   strength?: number;
   download?: boolean;
+  target?: string;
+  rel?: string;
 }) {
   const ref = useRef<HTMLAnchorElement>(null);
   const x = useMotionValue(0);
@@ -45,6 +49,8 @@ export function MagneticButton({
     <motion.a
       ref={ref}
       href={href}
+      target={target}
+      rel={rel}
       {...(download ? { download: true } : {})}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
