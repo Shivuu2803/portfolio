@@ -112,11 +112,8 @@ export const experience: Experience[] = [
   },
 ];
 
-export type ProjectCategory = "Frontend" | "Backend" | "Fullstack";
-
 export type Project = {
   name: string;
-  category: ProjectCategory;
   kind: string;
   image: string;
   blurb: string;
@@ -124,15 +121,12 @@ export type Project = {
   links?: { label: string; href: string }[];
 };
 
-export const projectFilters = ["All", "Frontend", "Backend", "Fullstack"] as const;
-
 const GH = "https://github.com/Shivuu2803";
 
 // Personal / open projects. Lendix work is described in Experience, not here.
 export const projects: Project[] = [
   {
     name: "Real-time Chat App",
-    category: "Fullstack",
     kind: "Full-stack · MERN",
     image: "/projects/chat-app.webp",
     blurb:
@@ -145,7 +139,6 @@ export const projects: Project[] = [
   },
   {
     name: "Voting Application — Backend",
-    category: "Backend",
     kind: "Backend · API",
     image: "/projects/voting-backend.webp",
     blurb:
@@ -158,7 +151,6 @@ export const projects: Project[] = [
   },
   {
     name: "Blog Platform",
-    category: "Fullstack",
     kind: "Full-stack · MERN",
     image: "/projects/blog.webp",
     blurb:
@@ -167,21 +159,7 @@ export const projects: Project[] = [
     links: [{ label: "GitHub", href: GH }],
   },
   {
-    name: "Product API",
-    category: "Backend",
-    kind: "Backend · REST API",
-    image: "/projects/product-api.webp",
-    blurb:
-      "A RESTful product API with full CRUD, clean endpoint design, and efficient data handling — built with scalability and easy frontend integration in mind.",
-    tech: ["Node.js", "Express", "MongoDB", "REST", "Postman"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
-  },
-  {
     name: "Employee Management System",
-    category: "Frontend",
     kind: "Frontend · React",
     image: "/projects/ems.webp",
     blurb:
@@ -194,7 +172,6 @@ export const projects: Project[] = [
   },
   {
     name: "Gemini 2.0",
-    category: "Frontend",
     kind: "Frontend · AI integration",
     image: "/projects/gemini.webp",
     blurb:
@@ -207,69 +184,12 @@ export const projects: Project[] = [
   },
   {
     name: "MyFit App",
-    category: "Frontend",
     kind: "Mobile · React Native",
     image: "/projects/myfit.webp",
     blurb:
       "A cross-platform fitness tracking app built with React Native — intuitive UI, smooth navigation, and clean state management and API integration.",
     tech: ["React Native", "Tailwind CSS"],
     links: [{ label: "GitHub", href: GH }],
-  },
-  {
-    name: "Currency Converter",
-    category: "Frontend",
-    kind: "Frontend · API",
-    image: "/projects/currency.webp",
-    blurb:
-      "A real-time currency converter with a simple interface and instant results — a practical exercise in API integration and clean financial UX.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
-  },
-  {
-    name: "Dice Game",
-    category: "Frontend",
-    kind: "Frontend · Game",
-    image: "/projects/dice.webp",
-    blurb:
-      "A two-player web dice game with alternating turns, score tracking, and a risk mechanic where rolling double-six resets your score. A study in game logic.",
-    tech: ["React", "CSS"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
-  },
-  {
-    name: "Simon Game",
-    category: "Frontend",
-    kind: "Frontend · Game",
-    image: "/projects/simon.webp",
-    blurb:
-      "The classic Simon memory game with HTML audio, sound sequences, and an intuitive interface — an exercise in event handling and multimedia in the browser.",
-    tech: ["HTML", "CSS", "JavaScript", "jQuery"],
-    links: [{ label: "GitHub", href: GH }],
-  },
-  {
-    name: "Drum Kit",
-    category: "Frontend",
-    kind: "Frontend · Interactive",
-    image: "/projects/drumkit.webp",
-    blurb:
-      "An interactive drum kit that plays sounds on key press or click — a fun study in event handling, audio, and tactile web interactions.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "GitHub", href: GH }],
-  },
-  {
-    name: "Empower-U",
-    category: "Frontend",
-    kind: "Design · UI/UX",
-    image: "/projects/empower-u.webp",
-    blurb:
-      "A digital platform concept for personal and professional growth — designed with an agile, user-feedback-driven process focused on tailored learning experiences.",
-    tech: ["Figma", "Canva", "UI/UX", "Product Design"],
-    links: [],
   },
 ];
 
