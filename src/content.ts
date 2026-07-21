@@ -132,10 +132,7 @@ export const projects: Project[] = [
     blurb:
       "A real-time messaging app on the MERN stack with JWT authentication, chat rooms, and live delivery over WebSockets — a study in stateful, low-latency communication.",
     tech: ["React", "Node.js", "Express", "MongoDB", "Socket.io", "JWT"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
+    links: [{ label: "GitHub", href: GH }],
   },
   {
     name: "Voting Application — Backend",
@@ -144,10 +141,7 @@ export const projects: Project[] = [
     blurb:
       "A secure voting backend with one-vote-per-user integrity, token-based auth, and an admin layer for managing candidates. A study in backend correctness and data integrity.",
     tech: ["Node.js", "Express", "MongoDB", "JWT", "REST"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
+    links: [{ label: "GitHub", href: GH }],
   },
   {
     name: "Blog Platform",
@@ -165,10 +159,7 @@ export const projects: Project[] = [
     blurb:
       "An EMS with separate admin and employee dashboards, local-storage persistence, and a clean responsive UI built with React and Tailwind.",
     tech: ["React", "Tailwind CSS", "Local Storage"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
+    links: [{ label: "GitHub", href: GH }],
   },
   {
     name: "Gemini 2.0",
@@ -177,10 +168,7 @@ export const projects: Project[] = [
     blurb:
       "A React app integrating the Gemini API for dynamic, real-time AI responses, with a redesigned UI, state management, and a smooth interactive experience.",
     tech: ["React", "Gemini API", "CSS"],
-    links: [
-      { label: "GitHub", href: GH },
-      { label: "Live", href: GH },
-    ],
+    links: [{ label: "GitHub", href: GH }],
   },
   {
     name: "MyFit App",
