@@ -10,11 +10,12 @@ export const siteUrl = "https://portfolio-five-zeta-rp9zc26u9y.vercel.app";
 
 export const profile = {
   name: "Shivansh Mishra",
-  role: "Software Development Engineer",
-  location: "Lucknow, India",
-  tagline: "I'm a full-stack engineer who cares about systems that stay reliable under pressure.",
+  role: "Software Engineer",
+  location: "Moradabad, India",
+  tagline:
+    "I'm a full-stack engineer who cares about systems that stay reliable under pressure.",
   intro:
-    "Software Development Engineer at Lendix.ai, working on production systems in the fintech and lending space — backend services, API integrations, and internal tooling across the full stack.",
+    "Software Engineer at Heckyl Technologies (parent company of Lendix.ai), building a multi-lender digital lending platform — backend services, compliance workflows, and API integrations across the full stack.",
   email: "shivanshmishra2606@gmail.com",
   links: {
     github: "https://github.com/Shivuu2803",
@@ -22,7 +23,7 @@ export const profile = {
     email:
       "mailto:shivanshmishra2606@gmail.com?subject=Let%27s%20connect&body=Hi%20Shivansh%2C",
     // Hosted on Vercel Blob (public), not in the repo — see .gitignore.
-    cv: "https://hs0vxdmdpdrp9dnl.public.blob.vercel-storage.com/Shivansh_Mishra_CV.pdf",
+    cv: "https://drive.google.com/file/d/178U2uyq51Uy9E-4XBnQWO_XhfjMYX3WJ/view?usp=drive_link",
   },
 };
 
@@ -30,7 +31,7 @@ export const profile = {
 export const about = {
   paragraphs: [
     "I'm a full-stack engineer drawn to the unglamorous but critical parts of software — the integrations, fallbacks, and retry logic that keep systems **resilient** when a third-party dependency fails in production.",
-    "My path was direct: I trained intensively at **MountBlue**, then got deployed to **Lendix.ai**, where I've spent the last year building production systems in the fintech space — backend services, third-party integrations, and the internal tools the team relies on day to day.",
+    "My path was direct: I trained intensively at **MountBlue**, spent a year as a contract engineer at **Lendix.ai** building resilient integrations and AWS infrastructure, and then joined its parent company **Heckyl Technologies** full-time — where I'm building a **Loan Origination System** and digital lending platform from the ground up, while continuing to own the Lendix integrations and AWS infrastructure.",
   ],
 };
 
@@ -42,20 +43,37 @@ export type SkillGroup = {
 
 export const skills: SkillGroup[] = [
   {
+    label: "Languages",
+    items: ["JavaScript", "TypeScript", "C++", "Java", "Python"],
+  },
+  {
     label: "Frontend",
-    items: ["React", "Next.js", "React Native", "TypeScript", "Tailwind CSS"],
+    items: ["React", "Next.js", "React Native", "Tailwind CSS"],
   },
   {
     label: "Backend",
-    items: ["Node.js", "Express", "REST APIs", "Serverless", "MySQL", "MongoDB"],
+    items: ["Node.js", "Express", "Hono", "REST APIs", "Serverless"],
+  },
+  {
+    label: "Databases",
+    items: ["MySQL", "PostgreSQL", "MongoDB"],
   },
   {
     label: "AWS / Cloud",
-    items: ["Lambda", "DynamoDB", "CloudWatch", "SES", "Amplify"],
+    items: [
+      "Lambda",
+      "API Gateway",
+      "DynamoDB",
+      "CloudWatch",
+      "Cognito",
+      "SES",
+      "Amplify",
+      "EventBridge",
+    ],
   },
   {
-    label: "Tools",
-    items: ["Git", "GitHub", "GitHub Actions", "Figma", "Linux"],
+    label: "Tools & Design",
+    items: ["Git", "GitHub", "GitHub Actions", "Linux", "Figma", "Canva", "UI/UX Design"],
   },
 ];
 
@@ -67,9 +85,21 @@ export type Stat = {
 
 // Quantified, confirmed wins only — no confidential product names or metrics.
 export const stats: Stat[] = [
-  { value: "+60%", label: "client throughput", context: "via an automatic fallback mechanism" },
-  { value: "-55%", label: "AWS CloudWatch cost", context: "through optimized queries & ingestion" },
-  { value: "1+", label: "years in industry", context: "building real fintech systems" },
+  {
+    value: "+60%",
+    label: "client throughput",
+    context: "via an automatic fallback mechanism",
+  },
+  {
+    value: "-55%",
+    label: "AWS CloudWatch cost",
+    context: "through optimized queries & ingestion",
+  },
+  {
+    value: "1.5+",
+    label: "years in industry",
+    context: "building real fintech systems",
+  },
   { value: "Full", label: "stack", context: "frontend, backend, and tooling" },
 ];
 
@@ -84,30 +114,41 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    company: "Lendix.ai",
-    role: "Software Development Engineer",
-    period: "Jun 2025 — Present",
+    company: "Heckyl Technologies",
+    role: "Software Engineer",
+    period: "Jul 2026 — Present",
     status: "current",
     summary:
-      "Building production systems in the fintech and lending space as part of the core engineering team.",
+      "Full-time at the parent company of Lendix.ai — building a Loan Origination System and multi-lender digital lending platform, while continuing to own the Lendix integrations and AWS infrastructure.",
     highlights: [
-      "Built **automatic fallback** for critical third-party integrations — kept client workflows running through vendor outages, lifting client throughput by **~60%**.",
-      "Developed and maintained **API gateway** services on AWS — unified, resilient endpoints over many downstream integrations.",
-      "Owned deployments end to end — **CI/CD** pipelines and releases across services on AWS.",
-      "Cut **AWS CloudWatch** costs by **~55%** through optimized log/metric queries and tighter ingestion and retention.",
+      "Engineered a digital **Loan Origination System** from scratch using TypeScript, Node.js (Hono), AWS Lambda, MySQL, and Next.js.",
+      "Implemented borrower onboarding and **RBI digital lending compliance** — consent management, Key Fact Statement (KFS), and cooling-off periods.",
+      "Strengthened backend infrastructure and accelerated the test pipeline by **11×**.",
+    ],
+  },
+  {
+    company: "Lendix.ai",
+    role: "Software Development Engineer",
+    period: "Jul 2025 — Jun 2026",
+    status: "past",
+    summary:
+      "Contract role via MountBlue Technologies, building production systems in the fintech and lending space.",
+    highlights: [
+      "Built **automatic fallback** and resilient **API gateway** services on AWS for critical third-party integrations — kept client workflows running through vendor outages, lifting client throughput by **60%**.",
+      "Owned deployments end to end — **CI/CD** pipelines and releases across AWS services.",
+      "Cut **AWS CloudWatch** costs by **55%** through optimized log/metric queries and tighter ingestion and retention.",
     ],
   },
   {
     company: "MountBlue Technologies",
-    role: "Software Engineer Trainee",
-    period: "Mar — Jun 2025",
+    role: "Software Engineer Intern",
+    period: "Mar 2025 — Jun 2025",
     status: "past",
     summary:
-      "Intensive full-stack engineering bootcamp — building real projects on the MERN stack with constant code reviews and assessments.",
+      "Intensive full-stack engineering program — building real projects on the MERN stack under real-world engineering standards.",
     highlights: [
-      "Built multiple full-stack projects across the **MERN stack** under real-world engineering standards.",
-      "Sharpened through constant **code reviews** and regular tests that enforced clean, production-grade code.",
-      "Selected and deployed to **Lendix.ai** on completion of the program.",
+      "Built multiple full-stack projects across the **MERN stack** with constant **code reviews** and assessments.",
+      "Earned a contract placement as **Software Development Engineer** at Lendix.ai on completion of the program.",
     ],
   },
 ];
